@@ -1,7 +1,7 @@
 x = float(input('Введите число "x": '))
 count = 0
 while 1:
-    vvod = input()
+    vvod = input('Введите число из массива. Если массив закончен, введите "Stop": ')
     if vvod == 'Stop':
         break
     elif x == float(vvod):
