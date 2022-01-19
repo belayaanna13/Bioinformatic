@@ -39,6 +39,9 @@ for i in range(n-2):
                 m_3 = None
             elif m_2 == None and number < m_1:
                 m_2 = number
+            elif m_2 == None and number > m_1:
+                m_2 = m_1
+                m_1 = number
             elif m_3 == None and number < m_2:
                 m_3 = number
             elif number < m_1 and number > m_2:
