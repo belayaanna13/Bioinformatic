@@ -1,11 +1,10 @@
-import random as r
+x = float(input('Введите число "x": '))
+count = 0
+while 1:
+    vvod = input()
+    if vvod == 'Stop':
+        break
+    elif x == float(vvod):
+        count += 1
 
-first_number = int(input('Введите от какого числа может быть выборка:'))
-last_number = int(input('Введите до какого числа может быть выборка:'))
-list = []
-number = int(input('Введите число "x": '))
-
-for i in range(int(input('Введите количество чисел в массиве:'))):
-    list.append(r.randint(first_number, last_number))
-
-print(f'Количество вхождений числа "x": {list.count(number)}')
+print(f'Число вхождений числа "x": {count}')
