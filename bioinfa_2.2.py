@@ -1,11 +1,32 @@
-list_ = [3, -5, 7, 89, 56, 89, 89, 14, -90, 89, 89, 89]
-max_number = max(list_)
-count_max_number = list_.count(max_number)
+
+n = int(input('Введите количество чисел в массиве: '))
+m_1 = float(input('Ввведите число из массива: '))
+k = 0
+for i in range(n-1):
+    number = float(input('Ввведите число из массива: '))
+    if k == 0:
+        if number < m_1:
+            m_2 = number
+        elif number > m_1:
+            m_2 = m_1
+            m_1 = number
+        else:
+            m_1 = number
+            m_2 = None
+    else:
+        if number < m_1 and m_2 == None  or number < m_1 and number >= m_2 :
+            m_2 = number
+        elif number > m_1:
+            m_2 = m_1
+            m_1 = number
+    k += 1
+print(f'Искомое число: {m_2}')
 
 
-for i in range(count_max_number):
-  index = list_.index(max_number)
-  del list_[index]
 
-print(f'Второй по величине элемент в введенном массиве: {max(list_)}')
+
+
+
+
+
 
