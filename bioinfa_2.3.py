@@ -1,17 +1,57 @@
-list_ = [3, -5, 7, 89, 56, 89, 89, 14, -90, 89, 89, 89]
-max_number = max(list_)
-count_max_number = list_.count(max_number)
+
+n = int(input('Введите количество чисел в массиве: '))
+m_1 = float(input('Ввведите число из массива: '))
+m_2 = float(input('Ввведите число из массива: '))
+k = 0
+
+if m_2 > m_1:
+  a = m_1
+  m_1 = m_2
+  m_2 = a
+elif m_2 == m_1:
+  m_2 = None
+for i in range(n-2):
+        number = float(input('Ввведите число из массива: '))
+        if k == 0:
+            if  m_2 == None and number < m_1:
+                m_2 = number
+                m_3 = None
+            elif m_2 == None and number > m_1:
+                m_2 = m_1
+                m_1 = number
+                m_3 = None
+            elif m_2 == None and m_1 == number:
+                m_3 = None
+            elif number < m_2:
+                m_3 = number
+            elif number > m_1:
+                m_3 = m_2
+                m_2 = m_1
+                m_1 = number
+            elif number < m_1 and number > m_2:
+                m_3 = m_2
+                m_2 = number
+            # else:
+            #     m_3 = None
+        else:
+            if m_3 == None and m_2 == None and number == m_1:
+                m_2 = None
+                m_3 = None
+            elif m_2 == None and number < m_1:
+                m_2 = number
+            elif m_3 == None and number < m_2:
+                m_3 = number
+            elif number < m_1 and number > m_2:
+                m_3 = m_2
+                m_2 = number
+            elif number < m_2 and number > m_3:
+                m_3 = number
+
+            elif number > m_1:
+                m_3 = m_2
+                m_2 = m_1
+                m_1 = number
+        k += 1
+print(f'Искомое число: {m_3}')
 
 
-for i in range(count_max_number):
-  index = list_.index(max_number)
-  del list_[index]
-
-max_number_2 = max(list_)
-count_max_number_2 = list_.count(max_number_2)
-
-for i in range(count_max_number_2):
-  index_2 = list_.index(max_number_2)
-  del list_[index_2]
-
-print(f'Третий по величине элемент в введенном массиве: {max(list_)}')
