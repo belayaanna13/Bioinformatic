@@ -1,6 +1,5 @@
-number = 1534351
+number = int(input('Введите число: '))
 n = 0
-
 
 for i in range(len(str(number))//2):
   if str(number)[i] == str(number)[-(i+1)]:
