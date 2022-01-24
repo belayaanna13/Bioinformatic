@@ -1,3 +1,4 @@
+from math import inf
 
 n = int(input('Введите количество чисел в массиве: '))
 m_1 = float(input('Ввведите число из массива: '))
@@ -11,10 +12,9 @@ for i in range(n-1):
             m_2 = m_1
             m_1 = number
         else:
-            m_1 = number
-            m_2 = None
+            m_2 = - inf
     else:
-        if number < m_1 and m_2 == None  or number < m_1 and number >= m_2 :
+        if number < m_1 and number >= m_2:
             m_2 = number
         elif number > m_1:
             m_2 = m_1
