@@ -1,51 +1,97 @@
 import time
+import random
+import math
 
-time_from_start = time.time()
+#Вычисляет индекс, куда засунуть число x
+def Hash_function(b):
+    return (b*10)//1
+
+
+
 
 m = [0, 1]
 c = 2
-n = 5 #количество чисел в массиве
-x = 0.137
-arr = [0.11, 0.137, 0.367, 0.872, 0.987]
+n = 0 #количество чисел в массиве
+time_arr = []
+n_arr = []
 
 hash_table = {
     0:[],
-    1:[0.11, 0.137],
+    1:[],
     2:[],
-    3:[0.3112, 0.367, 0.387, 0.395],
+    3:[],
     4:[],
     5:[],
     6:[],
     7:[],
-    8:[0.872],
-    9:[0.987]
+    8:[],
+    9:[]
 }
-c = 0
+k = 0
 
-for i in hash_table[x*10//1]:
-    if x == i:
-        c = 1
-        break
+for i in range(1000):
+    n+= 1
+    x = random.random()
+    a = random.random()  # число, добавляемое в таблицу
+    if n >= 167:
+        x = a
 
-if c == 1:
-    print(f'Число {x} найдено в массиве {arr}')
-else:
-    print(f'Число {x} не найдено в массиве {arr}')
+    hash_table[Hash_function(a)].append(a)
 
-time_of_program = time.time() - time_from_start
-print(time_of_program)
+    time_from_start = time.time()
+    for i in hash_table[x*10//1]:
+        if x == i:
+            k = 1
+            break
 
-import pandas as pd
+    # if k == 1:
+    #     print(f'Число {x} найдено в массиве {arr}')
+    # else:
+    #     print(f'Число {x} не найдено в массиве {arr}')
+    time_of_program = time.time() - time_from_start
+
+    n_arr.append(n)
+    time_arr.append(time_of_program)
+
+average = round((sum(time_arr)/len(n_arr)), 2)
+#
+# print(average)
+
+average_time = []
+average_time.append(average)
+print(time_arr)
+print(n_arr)
+
 import numpy as np
+import matplotlib.pyplot as plt
 
-df = pd.DataFrame({'Time': [time_of_program],
-                   'n': [n]
-})
+x = np.array(time_arr)
+y = np.array(n_arr)
+fig, ax = plt.subplots()
+ax.scatter(x, y, c = '#FFE2B7')
+ax.set_facecolor('black')
+fig.set(figwidth = 8,
+figheight = 8)
+
+
+
+# fig = plt.subplots()
+# y = lambda x: x
+# x = np.linspace(0, 1, 10000)
+# plt.plot(x, y(x))
+# plt.show()
+
+# import pandas as pd
+# import numpy as np
+
+# df = pd.DataFrame({'Time': [time_of_program],
+#                    'n': [n]
+# })
 
 
 #Способ_1
-df.to_excel('./task.xlsx')
-np.savetxt('./task.xlsx', df)
+# df.to_excel('task.xlsx')
+# np.savetxt('task.xlsx', df)
 
 #Способ_2
 # sheet = 'Лист1'
